@@ -3,6 +3,7 @@ Side project created by Naveen Kumanan. Projects created outside of university a
 
 ## CultureLearn
 - Web application created using a MongoDB database, Express.js API and an Angular frontend (MEAN Stack)
+- use the npm install command to install node_modules, then
 - run the frontend by using the command ng serve --open
 - run the backend using the command node server.js
 ### Features
