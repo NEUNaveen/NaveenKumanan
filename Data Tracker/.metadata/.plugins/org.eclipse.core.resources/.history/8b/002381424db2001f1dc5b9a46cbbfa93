@@ -1,0 +1,42 @@
+ * 
+ */
+package track;
+
+import java.text.ParseException;
+
+/**
+ * Main class, this is the start of all the code.
+ * CODE INSTRUCTION:
+ * I have instructions on including an extra that is needed in the comments for View.display_graph().
+ * 
+ * Deviation from plan:
+ * Initially I was thinking of making a database to store data points and I also said in a recitation submission
+ * that I would make a GUI. But I later realized both of those options were not great, because I realized for submission purposes
+ * I would need to figure out a way for the grader to also have access to the Database so I would need to host the database or something
+ * that I felt was too complicated and time consuming. I saw a better was was to use files, which is what I implemented.
+ * 
+ * For the GUI idea I realized a lot of my existing code in the mid-semester project submission was for the command line user interface
+ * I had already made an extensive User Interface and I would need to delete all of it and kind of start from project from scratch to make
+ * a GUI. Since I thought the existing command line UI was pretty good I wanted to continue with it. I also organized my UI code nicely
+ * using the MVC pattern so it was easily extendible for things I wanted to add.
+ * 
+ * @author Naveen Kumanan
+ */
+public class Main {
+	/**
+	 * default constructor
+	 */
+	Main(){
+		
+	}
+	/**
+	 * function calls run on a control object that will begin execution of the program.
+	 * @param args default main argument
+	 * @throws ParseException model can throw this error
+	 */
+	public static void main(String[] args) throws ParseException {
+		Control control = new Control();
+		
+		control.run();
+	}
+}

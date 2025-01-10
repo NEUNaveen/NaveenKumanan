@@ -1,0 +1,38 @@
+ * 
+ */
+package track;
+
+import java.text.ParseException;
+
+/**
+ * Main class, this is the start of all the code.
+ * CODE INSTRUCTION:
+ * I have instructions on including an extra that is needed in the comments for View.display_graph().
+ * 
+ * Deviation from plan:
+ * Initially I was thinking of making a database to store datapoints and I also said in a recitation submission
+ * that I would make a GUI. Bt 
+ * 
+ * It is already a whole applications, ideas I had like db and GUI don't work Im seeing now, DB too complicated to host or figure out how to give access to prof to use and for 
+ * GUI: I did a lot of work on console UI for midsemester, I would have to delete all of it for to make a GUI. Its already good type.
+ * 
+ * @author Naveen Kumanan
+ */
+public class Main {
+	/**
+	 * default constructor
+	 */
+	Main(){
+		
+	}
+	/**
+	 * function calls run on a control object that will begin execution of the program.
+	 * @param args default main argument
+	 * @throws ParseException model can throw this error
+	 */
+	public static void main(String[] args) throws ParseException {
+		Control control = new Control();
+		
+		control.run();
+	}
+}
