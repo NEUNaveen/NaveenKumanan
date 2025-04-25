@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>coffee logging</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- bootstrap icons CDN(used to include bootstrap icons essentially) below -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" integrity="sha384-tViUnnbYAV00FLIhhi3v/dWt3Jxw4gZQcNoSCxCIFNJVCx7/D55/wXsrNIRANwdD" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $("#BMSubmit").on("click", function(event){
+                event.preventDefault();
+                
+                var c_a_field = $('#c_a');
+                var c_a = c_a_field.val();
+
+                var gs_field = $('#gs');
+                var gs = gs_field.val();
+
+                var waterTemp_field = $('#waterTemp');
+                var waterTemp = waterTemp_field.val();
+
+                var bc_field = $('#bc');
+                var bc = bc_field.val();
+
+                var wa_field = $('#wa');
+                var wa = wa_field.val();
+
+                var bm_field = $('#bm');
+                var bm = bm_field.val();
+
+                var dt_field = $('#dt');
+                var dt = dt_field.val();
+
+                var bm_name_field = $('#bm_name');
+                var bm_name = bm_name_field.val();
+                
+                var url = "http://localhost:5500/addBM";
+
+                var params = {};
+                if ( c_a && gs && waterTemp && bc && wa && bm && dt && bm_name) {
+                    params["c_a"] = c_a;
+                    params["gs"] = gs;
+                    params["waterTemp"] = waterTemp;
+                    params["bc"] = bc;
+                    params["wa"] = wa;
+                    params["bm"] = bm;
+                    params["dt"] = dt;
+                    params["bm_name"] = bm_name;  
+                }
+                
+                $.get(url, params, function(data, status) {
+                    if (status == "success") {
+                    }
+                    else{
+                    }
+                });
+            });
+
+            $("#RatingSubmit").on("click", function(event){
+                event.preventDefault();
+                
+                var r_num_field = $('#r_num');
+                var r_num = r_num_field.val();
+
+                var r_desc_field = $('#r_desc');
+                var r_desc = r_desc_field.val();
+
+                var r_emoji_field = $('#r_emoji');
+                var r_emoji = r_emoji_field.val();
+            
+                var url = "http://localhost:5500/addRating";
+
+                var params = {};
+                if (r_num && r_desc && r_emoji) {
+                    params["r_num"] = r_num;
+                    params["r_desc"] = r_desc;
+                    params["r_emoji"] = r_emoji;
+                }
+                
+                $.get(url, params, function(data, status) {
+                    if (status == "success") {                   
+                    }
+                });
+            });
+
+            $("#RatingUpdate").on("click", function(event){
+                event.preventDefault();
+                
+                var r_num_field = $('#r_num');
+                var r_num = r_num_field.val();
+
+                var r_desc_field = $('#r_desc');
+                var r_desc = r_desc_field.val();
+            
+                var url = "http://localhost:5500/updateRating";
+
+                var params = {};
+                if (r_num && r_desc) {
+                    params["r_num"] = r_num;
+                    params["r_desc"] = r_desc;
+                }
+                
+                $.get(url, params, function(data, status) {
+                    if (status == "success") {                   
+                    }
+                });
+            });
+
+            $("#TastingSubmit").on("click", function(event){
+                event.preventDefault();
+                
+                var t_date_field = $('#t_date');
+                var t_date = t_date_field.val();
+                
+                var t_desc_field = $('#t_desc');
+                var t_desc = t_desc_field.val();
+
+                var bid_field = $('#bid');
+                var bid = bid_field.val();
+
+                var rid_field = $('#rid');
+                var rid = rid_field.val();
+
+                var bm_id_field = $('#bm_id');
+                var bm_id = bm_id_field.val();
+                
+                var url = "http://localhost:5500/addTasting";
+
+                var params = {};
+                if (t_date && t_desc && bid  && rid && bm_id) {
+                    params["t_date"] = t_date;
+                    params["t_desc"] = t_desc;
+                    params["bid"] = bid;
+                    params["rid"] = rid;
+                    params["bm_id"] = bm_id;
+                }
+                
+                $.get(url, params, function(data, status) {
+                    if (status == "success") {                   
+                    }
+                });
+            });
+
+            $("#TNSubmit").on("click", function(event){
+                event.preventDefault();
+                
+                var nid_field = $('#nid');
+                var nid = nid_field.val();
+
+                var tid_field = $('#tid');
+                var tid = tid_field.val();
+                
+                var url = "http://localhost:5500/addTN";
+
+                var params = {};
+                if (nid && tid) {
+                    params["nid"] = nid;
+                    params["tid"] = tid;
+                }
+                
+                $.get(url, params, function(data, status) {
+                    if (status == "success") {                   
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+    <body>
+
+        <div class="container">
+            <h1>Coffee Logging</h1>
+            <nav>
+                <a href="http://localhost:8000/RequiredTasks/page1.html">Create and View Roasters</a> |
+                <a href="http://localhost:8000/RequiredTasks/page2.html">Create and View Products and Batches</a> |
+                <a href="http://localhost:8000/RequiredTasks/page3.html">Log a Tasting</a> |
+                <a href="http://localhost:8000/RequiredTasks/page4.html">Required Tasks Reports</a> |
+                <a href="http://localhost:8000/Reports/page5.html">Complex Reports</a>
+            </nav>
+            <h2>Log a Tasting</h2>
+
+            <h3>Create Brewing Methods you will use</h3>
+            <form id="BMForm">
+                <div class="form-group">
+                    <label for="c_a">Amount of ground coffee used in grams</label>
+                    <input type="number" class="form-control" id="c_a" name="c_a" placeholder="" />
+                </div>
+                <div class="form-group">
+                    <label for="gs">Grind size used</label>
+                    <input type="text" class="form-control" id="gs" name="gs" placeholder="" />
+                </div>
+                <div class="form-group">
+                    <label for="waterTemp">Water Temprature in Fahrenheit</label>
+                    <input type="number" class="form-control" id="waterTemp" name="waterTemp" placeholder="" />
+                </div>
+                <div class="form-group">
+                    <label for="bc">Bloom Count. How many blooms?</label>
+                    <input type="number" class="form-control" id="bc" name="bc" placeholder="" />
+                </div>
+                <div class="form-group">
+                    <label for="wa">Water Amount in fluid ounces</label>
+                    <input type="number" class="form-control" id="wa" name="wa" placeholder="" />
+                </div>
+                <div class="form-group">
+                    <label for="bm">Brewing Method used eg. Pourover/espresso machine/french press etc.</label>
+                    <input type="text" class="form-control" id="bm" name="bm" placeholder="" />
+                </div>
+                <div class="form-group">
+                    <label for="dt">Dairy type (2%/whole milk/half and half/creamer)</label>
+                    <input type="text" class="form-control" id="dt" name="dt" placeholder="" />
+                </div>
+                <div class="form-group">
+                    <label for="bm_name">Name this brewing method</label>
+                    <input type="text" class="form-control" id="bm_name" name="bm_name" placeholder="" />
+                </div>
+                <button type="submit" class="btn btn-default" id="BMSubmit">Submit</button>
+                <hr />
+            </form>
+
+            <h3>Create ratings you will use</h3>
+            <h4>To update a description, enter the number of the rating, the new desc and click the button</h4>
+            <form id="RatingForm">
+                <div class="form-group">
+                    <label for="r_num">Number</label>
+                    <input type="text" class="form-control" id="r_num" name="r_num" placeholder=""/>
+                </div>
+                <div class="form-group">
+                    <label for="r_desc">Description</label>
+                    <input type="text" class="form-control" id="r_desc" name="r_desc" placeholder=""/>
+                </div>
+                <div class="form-group">
+                    <label for="r_emoji">emoji (copy and paste an emoji here)</label>
+                    <input type="text" class="form-control" id="r_emoji" name="r_emoji" placeholder=""/>
+                </div>
+                <button type="submit" class="btn btn-default" id="RatingSubmit">Submit</button>
+                <button type="submit" class="btn btn-default" id="RatingUpdate">Change Description</button>
+
+                <hr />
+            </form>
+
+            <h3>Create a Tasting</h3>
+            <form id="TastingForm">
+                <div class="form-group">
+                    <label for="t_date">Date</label>
+                    <input type="date" class="form-control" id="t_date" name="t_date" placeholder="" />
+                </div>
+                <div class="form-group">
+                    <label for="t_desc">Description</label>
+                    <input type="text" class="form-control" id="t_desc" name="t_desc" placeholder="" />
+                </div>
+                <div class="form-group">
+                    <label for="bid">Batch Id</label>
+                    <input type="text" class="form-control" id="bid" name="bid" placeholder="" />
+                </div>
+                <div class="form-group">
+                    <label for="rid">Rating Id</label>
+                    <input type="text" class="form-control" id="rid" name="rid" placeholder="" />
+                </div>
+                <div class="form-group">
+                    <label for="bm_id">Brewing Method Id</label>
+                    <input type="text" class="form-control" id="bm_id" name="bm_id" placeholder="" />
+                </div>
+
+                <button type="submit" class="btn btn-default" id="TastingSubmit">Submit</button>
+                <hr />
+            </form>
+
+            <h3>Add Notes that you tasted</h3>
+            <form id="TNForm">
+                <div class="form-group">
+                    <label for="nid">Note Id</label>
+                    <input type="number" class="form-control" id="nid" name="nid" placeholder="These are ids from the Notes table and can be created in page2" />
+                </div>
+                <div class="form-group">
+                    <label for="tid">Tasting Id</label>
+                    <input type="number" class="form-control" id="tid" name="tid" placeholder="Enter the Tasting's id from the tasting table (using phpmyadmin or some other db inspection tool to find this)" />
+                </div>
+                <button type="submit" class="btn btn-default" id="TNSubmit">Submit</button>
+                <hr />
+            </form>
+
+        </div>
+
+    </body>
+</html>

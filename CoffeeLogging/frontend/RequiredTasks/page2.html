@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>coffee logging</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- bootstrap icons CDN(used to include bootstrap icons essentially) below -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" integrity="sha384-tViUnnbYAV00FLIhhi3v/dWt3Jxw4gZQcNoSCxCIFNJVCx7/D55/wXsrNIRANwdD" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $("#CountrySubmit").on("click", function(event){
+                event.preventDefault();
+                
+                var country_name_field = $('#country_name');
+                var country_name = country_name_field.val();
+                
+                var url = "http://localhost:5500/addCountry";
+
+                var params = {};
+                if (country_name) {
+                    params["country_name"] = country_name;
+                }
+                
+                $.get(url, params, function(data, status) {
+                    if (status == "success") {                   
+                    }
+                });
+            });
+
+            $("#GrowerSubmit").on("click", function(event){
+                event.preventDefault();
+                
+                var grower_name_field = $('#grower_name');
+                var grower_name = grower_name_field.val();
+
+                var grower_reg_field = $('#grower_reg');
+                var grower_reg = grower_reg_field.val();
+
+                var grower_elev_field = $('#grower_elev');
+                var grower_elev = grower_elev_field.val();
+
+                var grower_country_field = $('#grower_country');
+                var grower_country = grower_country_field.val();
+                
+                var url = "http://localhost:5500/addGrower";
+
+                var params = {};
+                if (grower_name && grower_reg_field && grower_elev && grower_country) {
+                    params["grower_name"] = grower_name;
+                    params["grower_reg"] = grower_reg;
+                    params["grower_elev"] = grower_elev;
+                    params["grower_country"] = grower_country;
+                }
+                
+                $.get(url, params, function(data, status) {
+                    if (status == "success") {
+                    }
+                    else{
+                    }
+                });
+            });
+
+            $("#VarSubmit").on("click", function(event){
+                event.preventDefault();
+                
+                var var_name_field = $('#var_name');
+                var var_name = var_name_field.val();
+                
+                var url = "http://localhost:5500/addVarietal";
+
+                var params = {};
+                if (var_name) {
+                    params["var_name"] = var_name;
+                }
+                
+                $.get(url, params, function(data, status) {
+                    if (status == "success") {                   
+                    }
+                });
+            });
+
+            $("#PMSubmit").on("click", function(event){
+                event.preventDefault();
+                
+                var pm_name_field = $('#pm_name');
+                var pm_name = pm_name_field.val();
+                
+                var url = "http://localhost:5500/addPM";
+
+                var params = {};
+                if (pm_name) {
+                    params["pm_name"] = pm_name;
+                }
+                
+                $.get(url, params, function(data, status) {
+                    if (status == "success") {                   
+                    }
+                });
+            });
+
+            $("#RLSubmit").on("click", function(event){
+                event.preventDefault();
+                
+                var rl_name_field = $('#rl_name');
+                var rl_name = rl_name_field.val();
+                
+                var url = "http://localhost:5500/addRL";
+
+                var params = {};
+                if (rl_name) {
+                    params["rl_name"] = rl_name;
+                }
+                
+                $.get(url, params, function(data, status) {
+                    if (status == "success") {                   
+                    }
+                });
+            });
+
+            $("#NoteSubmit").on("click", function(event){
+                event.preventDefault();
+                
+                var note_name_field = $('#note_name');
+                var note_name = note_name_field.val();
+                
+                var url = "http://localhost:5500/addNote";
+
+                var params = {};
+                if (note_name) {
+                    params["note_name"] = note_name;
+                }
+                
+                $.get(url, params, function(data, status) {
+                    if (status == "success") {                   
+                    }
+                });
+            });
+
+            $("#ProductSubmit").on("click", function(event){
+                event.preventDefault();
+                
+                var p_name_field = $('#p_name');
+                var p_name = p_name_field.val();
+                
+                var p_price_field = $('#p_price');
+                var p_price = p_price_field.val();
+
+                var pm_id_field = $('#pm_id');
+                var pm_id = pm_id_field.val();
+
+                var vid_field = $('#vid');
+                var vid = vid_field.val();
+
+                var gid_field = $('#gid');
+                var gid = gid_field.val();
+
+                var rid_field = $('#rid');
+                var rid = rid_field.val();
+
+                var rl_id_field = $('#rl_id');
+                var rl_id = rl_id_field.val();
+                
+                var url = "http://localhost:5500/addProduct";
+
+                var params = {};
+                if (p_name && p_price && pm_id  && vid && gid && rid && rl_id) {
+                    params["p_name"] = p_name;
+                    params["p_price"] = p_price;
+                    params["pm_id"] = pm_id;
+                    params["vid"] = vid;
+                    params["gid"] = gid;
+                    params["rid"] = rid;
+                    params["rl_id"] = rl_id;
+                }
+                
+                $.get(url, params, function(data, status) {
+                    if (status == "success") {                   
+                    }
+                });
+            });
+
+            $("#PNSubmit").on("click", function(event){
+                event.preventDefault();
+                
+                var nid_field = $('#nid');
+                var nid = nid_field.val();
+
+                var pid_field = $('#pid');
+                var pid = pid_field.val();
+                
+                var url = "http://localhost:5500/addPN";
+
+                var params = {};
+                if (nid && pid) {
+                    params["nid"] = nid;
+                    params["pid"] = pid;
+                }
+                
+                $.get(url, params, function(data, status) {
+                    if (status == "success") {                   
+                    }
+                });
+            });
+
+            $("#BatchSubmit").on("click", function(event){
+                event.preventDefault();
+                
+                var rDate_field = $('#rDate');
+                var rDate = rDate_field.val();
+
+                var batch_pid_field = $('#batch_pid');
+                var batch_pid = batch_pid_field.val();
+                
+                var url = "http://localhost:5500/addBatch";
+
+                var params = {};
+                if (rDate && batch_pid) {
+                    params["rDate"] = rDate;
+                    params["batch_pid"] = batch_pid;
+                }
+                
+                $.get(url, params, function(data, status) {
+                    if (status == "success") {                   
+                    }
+                });
+            });
+
+        });
+    </script>
+</head>
+    <body>
+
+        <div class="container">
+            <h1>Coffee Logging</h1>
+            <nav>
+                <a href="http://localhost:8000/RequiredTasks/page1.html">Create and View Roasters</a> |
+                <a href="http://localhost:8000/RequiredTasks/page2.html">Create and View Products and Batches</a> |
+                <a href="http://localhost:8000/RequiredTasks/page3.html">Log a Tasting</a> |
+                <a href="http://localhost:8000/RequiredTasks/page4.html">Required Tasks Reports</a> |
+                <a href="http://localhost:8000/Reports/page5.html">Complex Reports</a>
+            </nav>
+            <h2>Add a new product</h2>
+
+            <h3>First create some countries (keep hitting the associated submit button as you finish filling a section before moving to the next section)</h3>
+            <form id="countryForm">
+                <div class="form-group">
+                    <label for="country_name">A Country</label>
+                    <input type="text" class="form-control" id="country_name" name="country_name" placeholder="Enter a country name and submit" />
+                </div>
+                <button type="submit" class="btn btn-default" id="CountrySubmit">Submit</button>
+                <hr />
+            </form>
+
+            <h3>Create Grower(s)</h3>
+            <form id="growerForm">
+                <div class="form-group">
+                    <label for="grower_name">Grower Name</label>
+                    <input type="text" class="form-control" id="grower_name" name="grower_name" placeholder="Enter the grower's name" />
+                </div>
+                <div class="form-group">
+                    <label for="grower_reg">Grower Region</label>
+                    <input type="text" class="form-control" id="grower_reg" name="grower_reg" placeholder="Enter the grower's region" />
+                </div>
+                <div class="form-group">
+                    <label for="grower_elev">Grower's Farm Elevation (as a float)</label>
+                    <input type="text" class="form-control" id="grower_elev" name="grower_elev" placeholder="Enter the grower's farm elevation" />
+                </div>
+                <div class="form-group">
+                    <label for="grower_country">Grower's Country</label>
+                    <input type="text" class="form-control" id="grower_country" name="grower_country" placeholder="Enter the grower's country, must be from countries already saved in the db" />
+                </div>
+                <button type="submit" class="btn btn-default" id="GrowerSubmit">Submit</button>
+                <hr />
+            </form>
+
+            <h3>Create Varietals</h3>
+            <form id="VarietalForm">
+                <div class="form-group">
+                    <label for="var_name">Varietal Name</label>
+                    <input type="text" class="form-control" id="var_name" name="var_name" placeholder="Enter the varietals's name" />
+                </div>
+                <button type="submit" class="btn btn-default" id="VarSubmit">Submit</button>
+                <hr />
+            </form>
+
+            <h3>Create Processing Methods</h3>
+            <form id="PMForm">
+                <div class="form-group">
+                    <label for="pm_name">Processing Method Name</label>
+                    <input type="text" class="form-control" id="pm_name" name="pm_name" placeholder="Enter the procesing methods name" />
+                </div>
+                <button type="submit" class="btn btn-default" id="PMSubmit">Submit</button>
+                <hr />
+            </form>
+
+            <h3>Create Roast Levels</h3>
+            <form id="RLForm">
+                <div class="form-group">
+                    <label for="rl_name">Roast Level Name</label>
+                    <input type="text" class="form-control" id="rl_name" name="rl_name" placeholder="Enter the roast level name" />
+                </div>
+                <button type="submit" class="btn btn-default" id="RLSubmit">Submit</button>
+                <hr />
+            </form>
+
+            
+            <h3>Create Some Notes (that you could taste)</h3>
+            <form id="NoteForm">
+                <div class="form-group">
+                    <label for="note_name">Note Name</label>
+                    <input type="text" class="form-control" id="note_name" name="note_name" placeholder="Enter the notes name, hit submit to save it in the database!" />
+                </div>
+                <button type="submit" class="btn btn-default" id="NoteSubmit">Submit</button>
+                <hr />
+            </form>
+
+            <h3>Create a Product</h3>
+            <form id="ProductForm">
+                <div class="form-group">
+                    <label for="p_name">Product Name</label>
+                    <input type="text" class="form-control" id="p_name" name="p_name" placeholder="" />
+                </div>
+                <div class="form-group">
+                    <label for="p_price">Product Price Per 100 grams</label>
+                    <input type="text" class="form-control" id="p_price" name="p_price" placeholder="" />
+                </div>
+                <div class="form-group">
+                    <label for="pm_id">Processing Method Id (from saved Methods)</label>
+                    <input type="text" class="form-control" id="pm_id" name="pm_id" placeholder="Enter the associated Processing Method ID used for this product, find it using phpmyadmin, same for below id fields" />
+                </div>
+                <div class="form-group">
+                    <label for="vid">Varietal Id (from previously created varietals)</label>
+                    <input type="text" class="form-control" id="vid" name="vid" placeholder="" />
+                </div>
+                <div class="form-group">
+                    <label for="gid">Grower Id</label>
+                    <input type="text" class="form-control" id="gid" name="gid" placeholder="" />
+                </div>
+                <div class="form-group">
+                    <label for="rid">Roaster Id</label>
+                    <input type="text" class="form-control" id="rid" name="rid" placeholder="" />
+                </div>
+                <div class="form-group">
+                    <label for="rl_id">Roast Level Id</label>
+                    <input type="text" class="form-control" id="rl_id" name="rl_id" placeholder="" />
+                </div>
+
+                <button type="submit" class="btn btn-default" id="ProductSubmit">Submit</button>
+                <hr />
+            </form>
+
+            <h3>Add Notes That the Product Claims to Have</h3>
+            <form id="PNForm">
+                <div class="form-group">
+                    <label for="nid">Note Id</label>
+                    <input type="number" class="form-control" id="nid" name="nid" placeholder="Enter the note's id from the notes table" />
+                </div>
+                <div class="form-group">
+                    <label for="pid">Product Id</label>
+                    <input type="number" class="form-control" id="pid" name="pid" placeholder="Enter the product's id from the products table (using phpmyadmin or some other db inspection tool)" />
+                </div>
+                <button type="submit" class="btn btn-default" id="PNSubmit">Submit</button>
+                <hr />
+            </form>
+
+            <h3>Add a batch of a product</h3>
+            <form id="BatchForm">
+                <div class="form-group">
+                    <label for="rDate">Roast Date</label>
+                    <input type="date" class="form-control" id="rDate" name="rDate" placeholder="Enter the roast date for the specific batch" />
+                </div>
+                <div class="form-group">
+                    <label for="batch_pid">Product Id</label>
+                    <input type="number" class="form-control" id="batch_pid" name="batch_pid" placeholder="Enter the product's id from the products table (using phpmyadmin or some other db inspection tool)" />
+                </div>
+                <button type="submit" class="btn btn-default" id="BatchSubmit">Submit</button>
+                <hr />
+            </form>
+        </div>
+
+    </body>
+</html>
