@@ -23,3 +23,8 @@
   - create trackers for any data you want to track, something like caloric intake, water, number of pushups per day, max deadlift, etc
   - record values daily, and program will save the data in a file
   - read in data from a saved file and add to it or visualize it as a graph to gain insight about how your data is progressing
+
+
+## Coffee Logging
+- Final project for my Database Management Systems Class taken in Spring 2025
+- Website used to log coffee tasting, comprehensive demos and documentation can be found in the readme inside the coffee logging folder
